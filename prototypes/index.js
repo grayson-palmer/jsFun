@@ -24,22 +24,31 @@ const kittyPrompts = {
   orangeKittyNames() {
 
     // Return an array of just the names of kitties who are orange e.g.
-    // ['Tiger', 'Snickers']
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    // ['Tiger', 'Snickers'] 
+
+    const result = kitties
+      .filter(kitty => kitty.color === 'orange')
+      .map(kitty => kitty.name);
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // First I got a list of only the cats
+    // that are orange, then used map to only return
+    // the names property of the orange cats.
   },
 
   sortByAge() {
     // Sort the kitties by their age
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = kitties.sort((a, b) => b.age - a.age);
     return result;
 
     // Annotation:
-    // Write your annotation here as a comment
+    // We are trying to sort the array of objects by a shared
+    // object value of age. We can sort the whole object
+    // similar to how we would a regular array, but have to
+    // drill into the object on the comparison section of the
+    // sort prototype.
   },
 
   growUp() {
@@ -56,9 +65,19 @@ const kittyPrompts = {
     // },
     // ...etc]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const ary = [];
+    kitties.forEach(kitty => {
+      kitty.age += 2;
+      ary.push(kitty);
+    });
+    const result = ary;
     return result;
   }
+  // Annotation:
+  // I feel there should be a method that is easier than
+  // what I did above, but it does function. I used a
+  // forEach prototype to iterate through each object
+  // in the array and push it into a placeholder.
 };
 
 
@@ -88,7 +107,7 @@ const clubPrompts = {
     //   ...etc
     // }
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = members;
     return result;
 
     // Annotation:
@@ -124,7 +143,13 @@ const modPrompts = {
     //   { mod: 4, studentsPerInstructor: 8 }
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    let ary = []
+    mods.forEach(e => {
+      let studentsPerInstructor = e.students / e.instructors;
+      let mod = e.mod;
+      ary.push({mod, studentsPerInstructor});
+    });
+    const result = ary;
     return result;
 
     // Annotation:
@@ -159,7 +184,8 @@ const cakePrompts = {
     //    ..etc
     // ]
 
-    const result = 'REPLACE WITH YOUR RESULT HERE';
+    const result = ;
+    console.log(result);
     return result;
 
     // Annotation:
@@ -362,7 +388,7 @@ const nationalParksPrompts = {
     // Annotation:
     // Write your annotation here as a comment
   }
-}
+};
 
 
 
